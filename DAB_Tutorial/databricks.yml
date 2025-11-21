@@ -1,0 +1,32 @@
+bundle:
+  name: DAB_Tutorial
+  uuid: 9798a14b-8c0c-45d7-88fd-3da637e43587
+
+include:
+  - resources/*.yml
+  - resources/*/*.yml
+
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: http://127.0.0.1:7073
+    permissions:
+      - user_name: sanoopananth2003@gmail.com
+        level: CAN_MANAGE
+    presets:
+      name_prefix: ${workspace.current_user.short_name}
+      source_linked_deployment: false
+
+  prod:
+    mode: production
+    workspace:
+      host: http://127.0.0.1:7073
+      root_path: /Workspace/PROD/.bundle/${bundle.name}/${bundle.target}
+    permissions:
+      - user_name: sanoopananth2003@gmail.com
+        level: CAN_MANAGE
+      - group_name: admins
+        level: CAN_RUN

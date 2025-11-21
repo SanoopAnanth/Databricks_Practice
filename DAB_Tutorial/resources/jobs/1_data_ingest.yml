@@ -1,0 +1,12 @@
+resources:
+  jobs:
+    1_DBA_job_nb:
+      name: 1_DBA_job_nb
+      tasks:
+        - task_key: NotebookRead
+          notebook_task:
+            notebook_path: ../../src/notebooks/data_ingestion.ipynb
+            source: WORKSPACE
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED

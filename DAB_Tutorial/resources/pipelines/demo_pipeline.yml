@@ -1,0 +1,15 @@
+resources:
+  pipelines:
+    pipeline_dba_int_pipeline:
+      name: DBA_int_pipeline
+      libraries:
+        - glob:
+            include: ../../src/DBA_int_pipeline/transformations/**
+      schema: default
+      continuous: false
+      development: false
+      photon: true
+      channel: CURRENT
+      catalog: databrickssanoop
+      serverless: true
+      root_path: ../../src/DBA_int_pipeline
